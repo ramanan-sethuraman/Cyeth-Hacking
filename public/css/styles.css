@@ -111,17 +111,20 @@ button, .small-button {
 .logo-panel .logo-panel-actions { margin-top: 0.6rem }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  background: #000;
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a, #10b981);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .brand-name {

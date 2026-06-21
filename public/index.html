@@ -10,7 +10,20 @@
   <header class="site-header">
     <div class="top-nav">
       <div class="brand logo-brand">
-        <span class="brand-mark">C</span>
+        <span class="brand-mark" aria-label="Cyeth Hacking logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10b981" />
+                <stop offset="100%" stop-color="#0f172a" />
+              </linearGradient>
+            </defs>
+            <path d="M32 4L12 14v18c0 14 10 26 20 28 10-2 20-14 20-28V14L32 4z" fill="url(#logoGrad)" stroke="#fff" stroke-width="2" />
+            <path d="M24 28h16v12H24z" fill="#fff" opacity="0.12" />
+            <path d="M24 20h16v8H24z" fill="#fff" opacity="0.2" />
+            <text x="32" y="44" text-anchor="middle" fill="#fff" font-family="Inter,system-ui,sans-serif" font-size="22" font-weight="800">CH</text>
+          </svg>
+        </span>
         <div>
           <div class="brand-name">Cyeth</div>
           <div class="brand-tag">Pentest planner</div>
