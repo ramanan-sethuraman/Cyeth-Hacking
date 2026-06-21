@@ -1,0 +1,14 @@
+{
+  "name": "cyeth-hacking",
+  "version": "0.1.0",
+  "description": "Pentest planning and evidence collection web application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Cyeth Hacking",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

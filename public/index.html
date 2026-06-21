@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyeth Hacking Pentest Planner</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="top-nav">
+      <div class="brand logo-brand">
+        <span class="brand-mark">C</span>
+        <div>
+          <div class="brand-name">Cyeth</div>
+          <div class="brand-tag">Pentest planner</div>
+        </div>
+        <div id="logoPanel" class="logo-panel" aria-hidden="true" role="region" aria-label="About Cyeth Hacking">
+          <div class="logo-panel-inner">
+            <h3>Cyeth Hacking Pentest Planner</h3>
+            <p>Organize a safe, repeatable web application vulnerability assessment in one sleek dashboard experience.</p>
+            <p><strong>Fast, structured planning</strong> for pentest scope, findings, evidence, and report delivery.</p>
+            <div class="logo-panel-actions">
+              <button id="logoHowTo" class="small-button">How to use</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#">Dashboard</a>
+        <a href="#findings">Findings</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#report">Report</a>
+      </nav>
+      <button class="primary-button" type="button">Export report</button>
+    </div>
+    <div class="hero">
+      <div class="hero-divider"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="dashboard-metrics">
+      <div class="metric-card">
+        <span class="metric-label">Findings</span>
+        <strong class="metric-value" id="metric-findings">0</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Phases</span>
+        <strong class="metric-value" id="metric-phases">0 / 8</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Report Status</span>
+        <strong class="metric-value" id="metric-status">Draft</strong>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <section class="panel card">
+        <h2>Rules of Engagement</h2>
+      <div class="field-group">
+        <label for="authSigned">Authorization status</label>
+        <input id="authSigned" type="text" placeholder="Signed ROE received?" />
+      </div>
+      <div class="field-group">
+        <label for="scope">Scope</label>
+        <textarea id="scope" rows="3" placeholder="Authorized IPs, URLs, and exclusions"></textarea>
+      </div>
+      <div class="field-grid">
+        <div class="field-group">
+          <label for="startDate">Start date</label>
+          <input id="startDate" type="date" />
+        </div>
+        <div class="field-group">
+          <label for="endDate">End date</label>
+          <input id="endDate" type="date" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="tester">Tester name</label>
+        <input id="tester" type="text" placeholder="Responsible tester" />
+      </div>
+      <div class="field-group">
+        <label for="dataHandling">Data handling notes</label>
+        <textarea id="dataHandling" rows="3" placeholder="Evidence storage, sensitive data rules"></textarea>
+      </div>
+    </section>
+  </div>
+
+    <section class="panel card">
+      <h2>Report Summaries</h2>
+      <div class="field-group">
+        <label for="riskRating">Executive risk rating</label>
+        <select id="riskRating">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+          <option value="Critical">Critical</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="execSummary">Executive summary</label>
+        <textarea id="execSummary" rows="3" placeholder="High-level findings and business impact"></textarea>
+      </div>
+      <div class="field-group">
+        <label for="techSummary">Technical summary</label>
+        <textarea id="techSummary" rows="4" placeholder="Testing methodology, tools, scope and timeline"></textarea>
+      </div>
+    </section>
+
+    <div class="dashboard-grid">
+      <section id="testing" class="panel card">
+      <h2>Testing Phases</h2>
+      <div class="task-list">
+        <label><input type="checkbox" id="phase1" /> Planning & scoping</label>
+        <label><input type="checkbox" id="phase2" /> Reconnaissance</label>
+        <label><input type="checkbox" id="phase3" /> Active discovery</label>
+        <label><input type="checkbox" id="phase4" /> Web discovery & crawling</label>
+        <label><input type="checkbox" id="phase5" /> Vulnerability identification</label>
+        <label><input type="checkbox" id="phase6" /> Controlled exploitation</label>
+        <label><input type="checkbox" id="phase7" /> Post-exploitation analysis</label>
+        <label><input type="checkbox" id="phase8" /> Remediation verification</label>
+      </div>
+    </section>
+
+    <section id="findings" class="panel card">
+      <h2>Findings</h2>
+      <form id="finding-form">
+        <div class="field-group">
+          <label for="findingTitle">Title</label>
+          <input id="findingTitle" type="text" placeholder="SQL Injection, XSS, Auth Bypass" required />
+        </div>
+        <div class="field-group">
+          <label for="findingLocation">Location / URL</label>
+          <input id="findingLocation" type="text" placeholder="https://target.example.com/login" required />
+        </div>
+        <div class="field-group">
+          <label for="findingSeverity">Severity</label>
+          <select id="findingSeverity">
+            <option>Critical</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="findingNotes">Notes / PoC</label>
+          <textarea id="findingNotes" rows="4" placeholder="Proof steps, evidence, remediation"></textarea>
+        </div>
+        <button type="submit">Add finding</button>
+      </form>
+      <div id="findingsTableContainer"></div>
+    </section>
+
+    <div class="horizontal-panels">
+      <section id="evidence" class="panel card">
+      <h2>Evidence & Export</h2>
+      <div class="field-group">
+        <label for="evidenceNotes">Evidence notes</label>
+        <textarea id="evidenceNotes" rows="3" placeholder="nmap output, Burp project, screenshots, raw requests"></textarea>
+      </div>
+      <div class="button-row">
+        <button id="exportJson" type="button">View JSON</button>
+        <button id="downloadJson" type="button">Download JSON</button>
+        <button id="downloadMarkdown" type="button">Download Markdown</button>
+        <button id="copySummary" type="button">Copy report summary</button>
+        <button id="clearAll" type="button">Clear all data</button>
+      </div>
+      <pre id="exportOutput"></pre>
+      </section>
+
+      <section id="report" class="panel">
+      <h2>Report Preview</h2>
+      <div id="reportPreview" class="report-preview">
+        <p class="empty">Generate a report preview by clicking any export button.</p>
+      </div>
+      </section>
+
+      <section id="how-to-use" class="panel">
+      <h2>How to use</h2>
+      <ul class="guide-list">
+        <li><strong>Add finding</strong>: Enter a title, location, severity, and notes, then click this button to register the finding in the dashboard.</li>
+        <li><strong>View JSON</strong>: Shows the current report data as JSON in the output panel and preview area.</li>
+        <li><strong>Download JSON</strong>: Saves the report data as a JSON file for review or import.</li>
+        <li><strong>Download Markdown</strong>: Exports the report in Markdown format for fast documentation or sharing.</li>
+        <li><strong>Copy report summary</strong>: Copies a short report summary to your clipboard for quick notes or email.</li>
+        <li><strong>Clear all data</strong>: Resets all fields, clears findings, and removes saved progress from local storage.</li>
+        <li><strong>Export report</strong> (top header): This quick action triggers the same report preview as the View JSON button.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for safe, repeatable vulnerability assessments.</p>
+  </footer>
+  <script src="/js/app.js"></script>
+</body>
+</html>
